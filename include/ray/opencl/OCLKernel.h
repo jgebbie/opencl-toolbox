@@ -13,7 +13,7 @@
  * Email: rayver /_at_/ hkn (dot) berkeley (dot) edu 
  */
 
-#include <CL/cl.h>
+#include <cl.h>
 #include <ray/opencl/OCLConstants.h>
 #include <ray/opencl/OCLError.h>
 #include <ray/opencl/OCLProgram.h>

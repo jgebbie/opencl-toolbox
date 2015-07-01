@@ -13,7 +13,7 @@
  * Email: rayver /_at_/ hkn (dot) berkeley (dot) edu
  */
 
-#include <CL/cl.h>
+#include <cl.h>
 
 #include <ray/opencl/OCLDevice.h>
 #include <ray/opencl/OCLConstants.h>
@@ -187,7 +187,8 @@ public:
 
 		clBuildProgram(m_id, devices.size(), &devices[0], build_options, NULL, NULL);	
 
-		ocl_check(clUnloadCompiler(), "clUnloadCompiler");
+        // jgebbie 2015-07-01: no longer need to unload compiler in OpenCL 1.2
+		//ocl_check(clUnloadCompiler(), "clUnloadCompiler");
 		query_info();			//When we build, we want to retrieve the binaries  and the build info
 		query_build_info();
 	}

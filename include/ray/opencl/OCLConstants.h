@@ -9,7 +9,7 @@
  * Email: rayver /_at_/ hkn (dot) berkeley (dot) edu
  */
 
-#include <CL/cl.h>
+#include <cl.h>
 
 namespace ray { namespace opencl {
 

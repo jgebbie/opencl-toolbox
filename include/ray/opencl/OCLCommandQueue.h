@@ -226,8 +226,8 @@ public:
 
 	inline void enqueue_marker(cl_event *out_event) {
 		ocl_check_fast(
-			clEnqueueMarker(m_id, out_event),
-			"clEnqueueMarker"
+			clEnqueueMarkerWithWaitList(m_id, 0, NULL, out_event),
+			"clEnqueueMarkerWithWaitList"
 		);
 	}
 
@@ -246,8 +246,8 @@ public:
 
 	inline void enqueue_barrier() { 
 		ocl_check_fast(
-			clEnqueueBarrier(m_id),
-			"clEnqueueBarrier"
+			clEnqueueBarrierWithWaitList(m_id, 0, NULL, NULL),
+			"clEnqueueBarrierWithWaitList"
 		);
 	}
 
@@ -364,15 +364,15 @@ public:
 
 	inline void enqueue_waitfor_events(std::vector<cl_event> &events) {
 		ocl_check_fast(
-			clEnqueueWaitForEvents(m_id, events.size(), &events[0]),
-			"clEnqueueWaitForEvents"
+			clEnqueueMarkerWithWaitList(m_id, events.size(), &events[0], NULL),
+			"clEnqueueMarkerWithWaitList"
 		);
 	}
 
 	inline void enqueue_waitfor_events(cl_uint num_events, const cl_event *events) {
 		ocl_check_fast(
-			clEnqueueWaitForEvents(m_id, num_events, events),
-			"clEnqueueWaitForEvents"
+			clEnqueueMarkerWithWaitList(m_id, num_events, events, NULL),
+			"clEnqueueMarkerWithWaitList"
 		);
 	}
 

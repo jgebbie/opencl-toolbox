@@ -1,7 +1,7 @@
 #ifndef _RAY_OPENCL_OPENCL_H_
 #define _RAY_OPENCL_OPENCL_H_
 
-#include <CL/cl.h>
+#include <cl.h>
 #include <ray/opencl/OCLBuffer.h>
 #include <ray/opencl/OCLContext.h>
 #include <ray/opencl/OCLDevice.h>
